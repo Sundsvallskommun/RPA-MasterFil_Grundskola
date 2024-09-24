@@ -1,6 +1,6 @@
 {
-  "name": "Masterfil För Skolskjuts",
-  "description": "Masterfil för skolskjuts gällande både grundskola och elevresor. ",
+  "name": "Masterfil För Skolskjuts Grundskola",
+  "description": "Masterfil för skolskjuts grundskola. ",
   "main": "Main.xaml",
   "dependencies": {
     "Microsoft.Activities.Extensions": "[2.0.3.8]",
