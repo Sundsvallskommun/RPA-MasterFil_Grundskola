@@ -7,7 +7,7 @@
     "OpenEplatform.API": "[1.0.10]",
     "OpenEplatform.External": "[2.2.4]",
     "UiPath.Excel.Activities": "[2.20.2]",
-    "UiPath.PDF.Activities": "[3.16.0]",
+    "UiPath.PDF.Activities": "[3.14.1]",
     "UiPath.System.Activities": "[24.3.1]",
     "UiPath.Testing.Activities": "[23.10.1]",
     "UiPath.UIAutomation.Activities": "[23.10.12]"
@@ -97,17 +97,17 @@
       },
       {
         "editingStatus": "InProgress",
-        "testCaseId": "433744b2-d3c8-41e2-a05a-14ce433c4513",
-        "testCaseType": "TestCase",
-        "executionTemplateInvokeIsolated": false,
-        "fileName": "Data Manipulation\\TestCase XML Data Value to Dictionary.xaml"
-      },
-      {
-        "editingStatus": "InProgress",
         "testCaseId": "3779e734-3c3f-4774-84cf-5aadeea57009",
         "testCaseType": "TestCase",
         "executionTemplateInvokeIsolated": false,
-        "fileName": "Data Manipulation\\TestCase PDF Data Value to Dictionary.xaml"
+        "fileName": "Tests\\TestCase PDF Data Value to Dictionary.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "433744b2-d3c8-41e2-a05a-14ce433c4513",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "Tests\\TestCase XML Data Value to Dictionary.xaml"
       }
     ],
     "modernBehavior": true

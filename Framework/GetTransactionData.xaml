@@ -11,7 +11,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1073,1436</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1713,1436</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -111,6 +111,7 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="960,1371" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -131,8 +132,6 @@
         <Variable x:TypeArguments="x:String" Name="OrchestratorQueue" />
         <Variable x:TypeArguments="x:Boolean" Name="TestElseProd" />
         <Variable x:TypeArguments="sd:DataTable" Name="dt_MasterFile" />
-        <Variable x:TypeArguments="ss:SecureString" Name="OePPassword" />
-        <Variable x:TypeArguments="x:String" Name="OePUsername" />
       </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -263,7 +262,7 @@
                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Check if cases is no longer valid&quot;]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,94" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Check if cases is no longer valid&quot;]" />
                   <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
@@ -369,7 +368,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:SortDataTable>
-                  <Sequence DisplayName="Updating Case that is No longer valid" sap:VirtualizedContainerService.HintSize="450,288" sap2010:WorkflowViewState.IdRef="Sequence_111">
+                  <Sequence DisplayName="Updating Case that is No longer valid" sap:VirtualizedContainerService.HintSize="450,293" sap2010:WorkflowViewState.IdRef="Sequence_111">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -401,7 +400,7 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:FilterDataTable>
-                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="För att få helt automatiska avslag behöver även de existerade giltiga ärenden som uppdateras till ogiltiga här också ändra status." DataTable="[dt_OnlyValidCases]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,112" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
+                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="För att få helt automatiska avslag behöver även de existerade giltiga ärenden som uppdateras till ogiltiga här också ändra status." DataTable="[dt_OnlyValidCases]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,117" sap2010:WorkflowViewState.IdRef="ForEachRow_6">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
@@ -529,6 +528,8 @@
                   <Sequence DisplayName="Updating Case that No Longer Has a 'Beliljad' Status" sap:VirtualizedContainerService.HintSize="450,201" sap2010:WorkflowViewState.IdRef="Sequence_92">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:Boolean" Name="CaseStatusIsNOTApproved" />
+                      <Variable x:TypeArguments="ss:SecureString" Name="OePPassword" />
+                      <Variable x:TypeArguments="x:String" Name="OePUsername" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -891,7 +892,7 @@
                         <av:PointCollection x:Key="ConnectorLocation">513.641666666667,529.54 513.641666666667,559.54 513.283333333334,559.54 513.283333333334,591.54</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Sequence DisplayName="Get students with status &quot;Beviljad&quot;" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                    <Sequence DisplayName="Get students with status &quot;Beviljad&quot;" sap:VirtualizedContainerService.HintSize="686,2401" sap2010:WorkflowViewState.IdRef="Sequence_8">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="sd:DataTable" Name="CasesDataTable" />
                         <Variable x:TypeArguments="x:Boolean" Name="FoundCases" />
@@ -963,7 +964,11 @@
                           </If.Else>
                         </If>
                       </Sequence>
-                      <Sequence DisplayName="Sequence - Get Cases" sap:VirtualizedContainerService.HintSize="624,1589" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <Sequence DisplayName="Sequence - Get Cases" sap:VirtualizedContainerService.HintSize="624,2038" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="ss:SecureString" Name="OePPassword" />
+                          <Variable x:TypeArguments="x:String" Name="OePUsername" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -971,6 +976,14 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="562,92" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Get latest cases with approved status or has a changed status&quot;]" />
+                        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Cred_NA_OeP" CacheStrategy="None" DisplayName="Private: Get OeP Credential" sap:VirtualizedContainerService.HintSize="562,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[OePPassword]" Username="[OePUsername]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:GetRobotCredential>
                         <Assign DisplayName="Assign - Empty DT" sap:VirtualizedContainerService.HintSize="562,82" sap2010:WorkflowViewState.IdRef="Assign_8">
                           <Assign.To>
                             <OutArgument x:TypeArguments="sd:DataTable">[dt_Cases]</OutArgument>
@@ -979,41 +992,60 @@
                             <InArgument x:TypeArguments="sd:DataTable">[New DataTable]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - Status as Filter" sap:VirtualizedContainerService.HintSize="562,1224" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[OeP_Filter]">
+                        <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each - Status as Filter" sap:VirtualizedContainerService.HintSize="562,1452" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[OeP_Filter]">
                           <ui:ForEach.Body>
                             <ActivityAction x:TypeArguments="x:String">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1098" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="526,1326" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:RetryScope DisplayName="Retry Scope Get Cases By FamilyID" sap:VirtualizedContainerService.HintSize="484,467" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:05">
-                                  <ui:RetryScope.ActivityBody>
-                                    <ActivityAction>
-                                      <o:Get_Cases_By_FamilyID__Not_Version_Specific_ CasesAsXMLDocument="{x:Null}" TempFolder="{x:Null}" ToDate="{x:Null}" CasesAsDataTable="[CasesDataTable]" DisplayName="Private: Get Cases By FamilyID (Not Version Specific)" DomainURL="[OepApiDomain]" FamilyID="[FamilyID]" FoundCases="[FoundCases]" FromDate="[if(LatestRunDate.Equals(DateTime.MinValue), Nothing, LatestRunDate)]" sap:VirtualizedContainerService.HintSize="284,292" sap2010:WorkflowViewState.IdRef="Get_Cases_By_FamilyID__Not_Version_Specific__1" NumberOfTries="2" Password="[OePPassword]" RequestTimeout="65000" StatusName="[currentItem]" Username="[OePUsername]">
-                                        <sap:WorkflowViewStateService.ViewState>
-                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                          </scg:Dictionary>
-                                        </sap:WorkflowViewStateService.ViewState>
-                                      </o:Get_Cases_By_FamilyID__Not_Version_Specific_>
-                                    </ActivityAction>
-                                  </ui:RetryScope.ActivityBody>
-                                  <ui:RetryScope.Condition>
-                                    <ActivityFunc x:TypeArguments="x:Boolean" />
-                                  </ui:RetryScope.Condition>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:RetryScope>
+                                <TryCatch DisplayName="Try Catch - Get Cases By FamilyID" sap:VirtualizedContainerService.HintSize="484,695" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+                                  <TryCatch.Try>
+                                    <ui:RetryScope DisplayName="Retry Scope Get Cases By FamilyID" sap:VirtualizedContainerService.HintSize="334,467" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3" RetryInterval="00:00:05">
+                                      <ui:RetryScope.ActivityBody>
+                                        <ActivityAction>
+                                          <o:Get_Cases_By_FamilyID__Not_Version_Specific_ CasesAsXMLDocument="{x:Null}" TempFolder="{x:Null}" ToDate="{x:Null}" CasesAsDataTable="[CasesDataTable]" DisplayName="Private: Get Cases By FamilyID (Not Version Specific)" DomainURL="[OepApiDomain]" FamilyID="[FamilyID]" FoundCases="[FoundCases]" FromDate="[if(LatestRunDate.Equals(DateTime.MinValue), Nothing, LatestRunDate)]" sap:VirtualizedContainerService.HintSize="284,292" sap2010:WorkflowViewState.IdRef="Get_Cases_By_FamilyID__Not_Version_Specific__1" NumberOfTries="2" Password="[OePPassword]" RequestTimeout="65000" StatusName="[currentItem]" Username="[OePUsername]">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </o:Get_Cases_By_FamilyID__Not_Version_Specific_>
+                                        </ActivityAction>
+                                      </ui:RetryScope.ActivityBody>
+                                      <ui:RetryScope.Condition>
+                                        <ActivityFunc x:TypeArguments="x:Boolean" />
+                                      </ui:RetryScope.Condition>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </ui:RetryScope>
+                                  </TryCatch.Try>
+                                  <TryCatch.Catches>
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_5">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ActivityAction x:TypeArguments="s:Exception">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                        </ActivityAction.Argument>
+                                      </ActivityAction>
+                                    </Catch>
+                                  </TryCatch.Catches>
+                                </TryCatch>
                                 <If Condition="[FoundCases]" DisplayName="If - CasesDataTable is not Nothing" sap:VirtualizedContainerService.HintSize="484,503" sap2010:WorkflowViewState.IdRef="If_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -1099,7 +1131,7 @@
                                 <av:PointCollection x:Key="ConnectorLocation">424.283333333334,695.04 491.25,695.04 491.25,746.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Check if cases already exsists in excel" sap:VirtualizedContainerService.HintSize="496,887" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <Sequence DisplayName="Check if cases already exsists in excel" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_22">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="scg:List(x:String)" Name="IDsToDrop" />
                                 <Variable x:TypeArguments="sd:DataTable" Name="dt_FilterCases" />
@@ -1365,11 +1397,11 @@
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <av:Point x:Key="ShapeLocation">430,939.5</av:Point>
-                                        <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                        <av:Size x:Key="ShapeSize">200,83</av:Size>
                                         <av:PointCollection x:Key="ConnectorLocation">630,980 820,980 820,230 400,230</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <Sequence DisplayName="Upload to queue" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                    <Sequence DisplayName="Upload to queue" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

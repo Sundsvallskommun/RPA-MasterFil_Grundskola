@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1732,1648</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1732,1674</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>XML_Data_Value_to_Dictionary_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -70,10 +70,9 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="XML_Data_Value_to_Dictionary" sap:VirtualizedContainerService.HintSize="1742,1583" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="XML_Data_Value_to_Dictionary" sap:VirtualizedContainerService.HintSize="1742,1569" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="XMLNodeList" />
       <Variable x:TypeArguments="x:Int32" Name="Index" />
@@ -84,9 +83,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[in_XMLNode IsNot Nothing]" DisplayName="If - Null Node" sap:VirtualizedContainerService.HintSize="1700,1495" sap2010:WorkflowViewState.IdRef="If_9">
+    <If Condition="[in_XMLNode IsNot Nothing]" DisplayName="If - Null Node" sap:VirtualizedContainerService.HintSize="1700,1481" sap2010:WorkflowViewState.IdRef="If_9">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="1179,1333" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence sap:VirtualizedContainerService.HintSize="1179,1321" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:Int32" Name="IndexInNode" />
           </Sequence.Variables>
@@ -95,7 +94,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign - Split into list of nodes" sap:VirtualizedContainerService.HintSize="1137,83" sap2010:WorkflowViewState.IdRef="Assign_5">
+          <Assign DisplayName="Assign - Split into list of nodes" sap:VirtualizedContainerService.HintSize="1137,82" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
               <OutArgument x:TypeArguments="scg:List(x:String)">[XMLNodeList]</OutArgument>
             </Assign.To>
@@ -103,7 +102,7 @@
               <InArgument x:TypeArguments="scg:List(x:String)">[Split(in_XMLNode, ",").ToList]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign DisplayName="Assign - Root element" sap:VirtualizedContainerService.HintSize="1137,83" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign DisplayName="Assign - Root element" sap:VirtualizedContainerService.HintSize="1137,82" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="sxl:XElement">[Element]</OutArgument>
             </Assign.To>
@@ -111,19 +110,19 @@
               <InArgument x:TypeArguments="sxl:XElement">[in_XML.Root]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Index]" DisplayName="For Each - Node in list" sap:VirtualizedContainerService.HintSize="1137,999" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[XMLNodeList]">
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[Index]" DisplayName="For Each - Node in list" sap:VirtualizedContainerService.HintSize="1137,989" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[XMLNodeList]">
             <ui:ForEach.Body>
               <ActivityAction x:TypeArguments="x:String">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
                 </ActivityAction.Argument>
-                <Sequence sap:VirtualizedContainerService.HintSize="1101,872" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <Sequence sap:VirtualizedContainerService.HintSize="1101,863" sap2010:WorkflowViewState.IdRef="Sequence_25">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If sap2010:Annotation.AnnotationText="Used if more than exactly one nodepath exsist and you do not want to take the first path." Condition="[IsNumeric(currentItem.Last.ToString)]" DisplayName="If - Node is Specified" sap:VirtualizedContainerService.HintSize="1059,101" sap2010:WorkflowViewState.IdRef="If_10">
+                  <If sap2010:Annotation.AnnotationText="Used if more than exactly one nodepath exsist and you do not want to take the first path." Condition="[IsNumeric(currentItem.Last.ToString)]" DisplayName="If - Node is Specified" sap:VirtualizedContainerService.HintSize="1059,97" sap2010:WorkflowViewState.IdRef="If_10">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -174,27 +173,32 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1059,643" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1059,638" sap2010:WorkflowViewState.IdRef="Sequence_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <If Condition="[Element.Descendants(in_FlowInstance + currentItem).Any]" DisplayName="If - Node Exsists" sap:VirtualizedContainerService.HintSize="997,532" sap2010:WorkflowViewState.IdRef="If_7">
+                    <If Condition="[Element.Descendants(in_FlowInstance + currentItem).Any]" DisplayName="If - Node Exsists" sap:VirtualizedContainerService.HintSize="997,527" sap2010:WorkflowViewState.IdRef="If_7">
                       <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,236" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,277" sap2010:WorkflowViewState.IdRef="Sequence_16">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign - Next element" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_12">
+                          <Assign sap2010:Annotation.AnnotationText="Ibland så finns inte exempelvis Guardian2 och då blir det ett fel här. Detta gör inget då en try-catch utanför tar hand om felet." DisplayName="Assign - Next element" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="Assign_12">
                             <Assign.To>
                               <OutArgument x:TypeArguments="sxl:XElement">[Element]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
                               <InArgument x:TypeArguments="sxl:XElement">[Element.Elements(in_FlowInstance + currentItem).ElementAt(IndexInNode)]</InArgument>
                             </Assign.Value>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
                           </Assign>
                           <If Condition="[Index +1 = XMLNodeList.Count]" DisplayName="If - Last Node" sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="If_8">
                             <sap:WorkflowViewStateService.ViewState>
@@ -234,13 +238,13 @@
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence sap:VirtualizedContainerService.HintSize="476,370" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <Sequence sap:VirtualizedContainerService.HintSize="476,367" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <Assign DisplayName="Assign - Did not find node" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign DisplayName="Assign - Did not find node" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[out_Value]</OutArgument>
                             </Assign.To>
@@ -250,7 +254,7 @@
                               </InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Did not find any value in node: &quot; + currentItem + &quot; in nodes: &quot; + in_XMLNode]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Trace" Message="[&quot;Did not find any value in node: &quot; + currentItem + &quot; in nodes: &quot; + in_XMLNode]" />
                           <ui:Break sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="Break_1" />
                         </Sequence>
                       </If.Else>
@@ -269,13 +273,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,171" sap2010:WorkflowViewState.IdRef="Sequence_21">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_21">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign DisplayName="Assign - out_Value to Nothing" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_10">
+          <Assign DisplayName="Assign - out_Value to Nothing" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_10">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_Value]</OutArgument>
             </Assign.To>
