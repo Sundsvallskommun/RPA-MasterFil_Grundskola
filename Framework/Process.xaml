@@ -111,7 +111,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1408,4209" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1310,4209" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="TestElsePrd" />
       <Variable x:TypeArguments="x:Int32" Name="CaseID" />
@@ -127,8 +127,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1366,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="The variable NoDataFound is used for value in dictionary if no data could be found from xml node.&#xA;&#xA;&#xA;Ex. no secondary adress could be found from XML the value fron NoDataFound will be used for value instead.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(in_Config(&quot;Environment&quot;).ToString.ToLower.Equals(&quot;test&quot;), True, False)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1366,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1268,94" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="The variable NoDataFound is used for value in dictionary if no data could be found from xml node.&#xA;&#xA;&#xA;Ex. no secondary adress could be found from XML the value fron NoDataFound will be used for value instead.&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;if(in_Config(&quot;Environment&quot;).ToString.ToLower.Equals(&quot;test&quot;), True, False)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1268,304" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
@@ -159,7 +159,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd CaseID" sap:VirtualizedContainerService.HintSize="1366,331" sap2010:WorkflowViewState.IdRef="If_105">
+    <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd CaseID" sap:VirtualizedContainerService.HintSize="1268,331" sap2010:WorkflowViewState.IdRef="If_105">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -201,7 +201,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd Get case XML" sap:VirtualizedContainerService.HintSize="1366,649" sap2010:WorkflowViewState.IdRef="If_104">
+    <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd Get case XML" sap:VirtualizedContainerService.HintSize="1268,649" sap2010:WorkflowViewState.IdRef="If_104">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -209,7 +209,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="829,335" sap2010:WorkflowViewState.IdRef="Sequence_173">
+        <Sequence sap:VirtualizedContainerService.HintSize="731,335" sap2010:WorkflowViewState.IdRef="Sequence_173">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="TEMP" />
             <Variable x:TypeArguments="upr:ILocalResource" Name="TEMPFilePath" />
@@ -219,7 +219,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists - For Test" sap:VirtualizedContainerService.HintSize="787,117" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="C:\Users\jon27san\Downloads\Masterfil - Ärenden som blivit fel\Ansökan om skolskjuts - 193757 - godman fel infomration på fel plats.xml" PathType="File" Resource="[TEMPFilePath]">
+          <ui:PathExists Exists="{x:Null}" DisplayName="Path Exists - For Test" sap:VirtualizedContainerService.HintSize="689,117" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="C:\Users\jon27san\Downloads\Masterfil - Ärenden som blivit fel\Ansökan om skolskjuts - 181400 -  Fel info fel ställe.xml" PathType="File" Resource="[TEMPFilePath]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -227,7 +227,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:PathExists>
-          <ui:ReadTextFile FileName="{x:Null}" Content="[TEMP]" DisplayName="Read Text File - For Test" Encoding="iso-8859-1" File="[TEMPFilePath]" sap:VirtualizedContainerService.HintSize="787,25" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
+          <ui:ReadTextFile FileName="{x:Null}" Content="[TEMP]" DisplayName="Read Text File - For Test" Encoding="iso-8859-1" File="[TEMPFilePath]" sap:VirtualizedContainerService.HintSize="689,25" sap2010:WorkflowViewState.IdRef="ReadTextFile_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -235,7 +235,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ReadTextFile>
-          <ui:DeserializeXml DisplayName="Deserialize XML - For Test" sap:VirtualizedContainerService.HintSize="787,25" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[CaseXML]" XMLString="[TEMP]">
+          <ui:DeserializeXml DisplayName="Deserialize XML - For Test" sap:VirtualizedContainerService.HintSize="689,25" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[CaseXML]" XMLString="[TEMP]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -358,7 +358,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <Sequence DisplayName="Read Master File  " sap:VirtualizedContainerService.HintSize="1366,80" sap2010:WorkflowViewState.IdRef="Sequence_208">
+    <Sequence DisplayName="Read Master File  " sap:VirtualizedContainerService.HintSize="1268,80" sap2010:WorkflowViewState.IdRef="Sequence_208">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -388,7 +388,7 @@
       </ui:ReadRange>
       <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="Datum ansökan" DataTable="[dt_MasterFile]" DisplayName="Sort Data Table - Newest First" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Decending" OutputDataTable="[dt_MasterFile]" SortOrder="Descending" />
     </Sequence>
-    <Flowchart sap:VirtualizedContainerService.HintSize="1366,2463" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart sap:VirtualizedContainerService.HintSize="1268,2463" sap2010:WorkflowViewState.IdRef="Flowchart_1">
       <Flowchart.Variables>
         <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="CaseInformation" />
         <Variable x:TypeArguments="x:Boolean" Name="DataIsMissing" />
