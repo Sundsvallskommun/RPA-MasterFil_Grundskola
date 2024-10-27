@@ -316,7 +316,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:RetryScope>
-            <ui:RetryScope DisplayName="Retry Scope - Get Case XML or PDF" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="3">
+            <ui:RetryScope DisplayName="Retry Scope - Get Case XML or PDF" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="RetryScope_2" NumberOfRetries="5" RetryInterval="00:01:00">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
                   <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="326,380" sap2010:WorkflowViewState.IdRef="Sequence_170">
@@ -5031,7 +5031,7 @@
                 <av:PointCollection x:Key="ConnectorLocation">491.641666666667,341.54 491.641666666667,391.54</av:PointCollection>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Get School Adress" sap:VirtualizedContainerService.HintSize="574,2281" sap2010:WorkflowViewState.IdRef="Sequence_150">
+            <Sequence DisplayName="Get School Adress" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_150">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="dt_SchoolInfo" />
                 <Variable x:TypeArguments="x:String" Name="Key" />
@@ -5049,8 +5049,8 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,92" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;Get school adress&quot;]" />
-              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="512,271" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="LogMessage_56" Level="Info" Message="[&quot;Get school adress&quot;]" />
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
                 <ui:MultipleAssign.AssignOperations>
                   <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                     <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
@@ -5105,12 +5105,18 @@
                 </ui:MultipleAssign.AssignOperations>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:MultipleAssign>
-              <If Condition="[SchoolGrade.ToLower.Contains(&quot;förskoleklass&quot;)]" DisplayName="If - Förskoleklass to F" sap:VirtualizedContainerService.HintSize="512,359" sap2010:WorkflowViewState.IdRef="If_226">
+              <If Condition="[SchoolGrade.ToLower.Contains(&quot;förskoleklass&quot;)]" DisplayName="If - Förskoleklass to F" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="If_226">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
                   <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_686">
                     <sap:WorkflowViewStateService.ViewState>
@@ -5138,7 +5144,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_SchoolInfoFromFile]" DisplayName="Read Range Workbook - School Info" sap:VirtualizedContainerService.HintSize="512,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Skolor" WorkbookPath="[in_Config(&quot;ConversionExcelFilepath&quot;).ToString]">
+              <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_SchoolInfoFromFile]" DisplayName="Read Range Workbook - School Info" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Skolor" WorkbookPath="[in_Config(&quot;ConversionExcelFilepath&quot;).ToString]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -5146,7 +5152,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ReadRange>
-              <ui:FilterDataTable DataTable="[dt_SchoolInfoFromFile]" DisplayName="Filter Data Table - Get correct data row" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="512,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_SchoolInfo]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable DataTable="[dt_SchoolInfoFromFile]" DisplayName="Filter Data Table - Get correct data row" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="450,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_SchoolInfo]" SelectColumnsMode="Keep">
                 <ui:FilterDataTable.Filters>
                   <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                     <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -5179,7 +5185,13 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:FilterDataTable>
-              <If Condition="[dt_SchoolInfo.RowCount = 0]" DisplayName="If - No rows found, only get the adress by SchoolName" sap:VirtualizedContainerService.HintSize="512,438" sap2010:WorkflowViewState.IdRef="If_227">
+              <If Condition="[dt_SchoolInfo.RowCount = 0]" DisplayName="If - No rows found, only get the adress by SchoolName" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="If_227">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
                 <If.Then>
                   <Sequence sap:VirtualizedContainerService.HintSize="376,249" sap2010:WorkflowViewState.IdRef="Sequence_688">
                     <sap:WorkflowViewStateService.ViewState>
@@ -5224,7 +5236,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <ui:FilterDataTable DataTable="[dt_SchoolInfo]" DisplayName="Filter Data Table - Only keeping relevant information" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="512,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_7" OutputDataTable="[dt_SchoolInfo]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable DataTable="[dt_SchoolInfo]" DisplayName="Filter Data Table - Only keeping relevant information" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="450,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_7" OutputDataTable="[dt_SchoolInfo]" SelectColumnsMode="Keep">
                 <ui:FilterDataTable.Filters>
                   <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                     <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -5243,7 +5255,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:FilterDataTable>
-              <Sequence DisplayName="Gatuadress" sap:VirtualizedContainerService.HintSize="512,80" sap2010:WorkflowViewState.IdRef="Sequence_578">
+              <Sequence DisplayName="Gatuadress" sap:VirtualizedContainerService.HintSize="450,80" sap2010:WorkflowViewState.IdRef="Sequence_578">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -5307,7 +5319,7 @@
                   <InArgument x:TypeArguments="x:String">[Value]</InArgument>
                 </InvokeMethod>
               </Sequence>
-              <Sequence DisplayName="PostNr" sap:VirtualizedContainerService.HintSize="512,80" sap2010:WorkflowViewState.IdRef="Sequence_576">
+              <Sequence DisplayName="PostNr" sap:VirtualizedContainerService.HintSize="450,80" sap2010:WorkflowViewState.IdRef="Sequence_576">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -5371,7 +5383,7 @@
                   <InArgument x:TypeArguments="x:String">[Value]</InArgument>
                 </InvokeMethod>
               </Sequence>
-              <Sequence DisplayName="Postort" sap:VirtualizedContainerService.HintSize="512,80" sap2010:WorkflowViewState.IdRef="Sequence_577">
+              <Sequence DisplayName="Postort" sap:VirtualizedContainerService.HintSize="450,80" sap2010:WorkflowViewState.IdRef="Sequence_577">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -5481,7 +5493,7 @@
                             <av:PointCollection x:Key="ConnectorLocation">280,647 280,696</av:PointCollection>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd Get Case PDF" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="If_178">
+                        <If Condition="[TestElsePrd]" DisplayName="If - Test or Prd Get Case PDF" sap:VirtualizedContainerService.HintSize="901,833" sap2010:WorkflowViewState.IdRef="If_178">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -5489,7 +5501,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <If.Then>
-                            <Sequence sap:VirtualizedContainerService.HintSize="364,171" sap2010:WorkflowViewState.IdRef="Sequence_535">
+                            <Sequence sap:VirtualizedContainerService.HintSize="364,170" sap2010:WorkflowViewState.IdRef="Sequence_535">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="x:String" Name="TEMP" />
                                 <Variable x:TypeArguments="upr:ILocalResource" Name="TEMPFilePath" />
@@ -5499,7 +5511,7 @@
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" sap:VirtualizedContainerService.HintSize="322,83" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[CasePDF]">
+                              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" sap:VirtualizedContainerService.HintSize="322,82" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[CasePDF]">
                                 <ui:ReadPDFText.FileName>
                                   <InArgument x:TypeArguments="x:String">
                                     <Literal x:TypeArguments="x:String" Value="" />
@@ -5509,13 +5521,13 @@
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="492,676" sap2010:WorkflowViewState.IdRef="Sequence_539">
+                            <Sequence sap:VirtualizedContainerService.HintSize="492,673" sap2010:WorkflowViewState.IdRef="Sequence_539">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence DisplayName="Get Case PDF" sap:VirtualizedContainerService.HintSize="450,588" sap2010:WorkflowViewState.IdRef="Sequence_538">
+                              <Sequence DisplayName="Get Case PDF" sap:VirtualizedContainerService.HintSize="450,585" sap2010:WorkflowViewState.IdRef="Sequence_538">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="x:String" Name="OePCredential" />
                                   <Variable x:TypeArguments="x:String" Name="OePURL" />
@@ -5560,13 +5572,13 @@
                                 <ui:RetryScope DisplayName="Retry Scope - Get Credential - OeP" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="RetryScope_3" NumberOfRetries="3">
                                   <ui:RetryScope.ActivityBody>
                                     <ActivityAction>
-                                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="376,272" sap2010:WorkflowViewState.IdRef="Sequence_536">
+                                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="376,269" sap2010:WorkflowViewState.IdRef="Sequence_536">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[OePCredential]" CacheStrategy="None" DisplayName="Get Credential - OeP" sap:VirtualizedContainerService.HintSize="334,184" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[OePPassword]" Username="[OePUsername]" />
+                                        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[OePCredential]" CacheStrategy="None" DisplayName="Get Credential - OeP" sap:VirtualizedContainerService.HintSize="334,181" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[OePPassword]" Username="[OePUsername]" />
                                       </Sequence>
                                     </ActivityAction>
                                   </ui:RetryScope.ActivityBody>
@@ -5580,16 +5592,16 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:RetryScope>
-                                <ui:RetryScope DisplayName="Retry Scope - Get Case XML or PDF" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="RetryScope_4" NumberOfRetries="3">
+                                <ui:RetryScope DisplayName="Retry Scope - Get Case XML or PDF" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="RetryScope_4" NumberOfRetries="5" RetryInterval="00:01:00">
                                   <ui:RetryScope.ActivityBody>
                                     <ActivityAction>
-                                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="326,385" sap2010:WorkflowViewState.IdRef="Sequence_537">
+                                      <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="326,380" sap2010:WorkflowViewState.IdRef="Sequence_537">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <o:Get_Case_XML_or_PDF CaseDataAsXMLDocument="{x:Null}" FoundCase="{x:Null}" TempFolder="{x:Null}" CaseID="[CaseID]" DisplayName="Get Case XML or PDF" DomainURL="[OePURL]" FilenameWithoutExtension="Temp" GetAsPDF="True" sap:VirtualizedContainerService.HintSize="284,297" sap2010:WorkflowViewState.IdRef="Get_Case_XML_or_PDF_3" NumberOfTries="3" PDFFilePath="[CasePDFFilePath]" Password="[OePPassword]" RequestTimeout="15000" Username="[OePUsername]">
+                                        <o:Get_Case_XML_or_PDF CaseDataAsXMLDocument="{x:Null}" FoundCase="{x:Null}" TempFolder="{x:Null}" CaseID="[CaseID]" DisplayName="Get Case XML or PDF" DomainURL="[OePURL]" FilenameWithoutExtension="Temp" GetAsPDF="True" sap:VirtualizedContainerService.HintSize="284,292" sap2010:WorkflowViewState.IdRef="Get_Case_XML_or_PDF_3" NumberOfTries="3" PDFFilePath="[CasePDFFilePath]" Password="[OePPassword]" RequestTimeout="15000" Username="[OePUsername]">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -5610,7 +5622,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:RetryScope>
-                                <ui:ReadPDFText DisplayName="Read PDF Text - CasePDFFilePath" FileName="[CasePDFFilePath]" sap:VirtualizedContainerService.HintSize="388,83" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" PreserveFormatting="True" Range="All" Text="[CasePDF]" />
+                                <ui:ReadPDFText DisplayName="Read PDF Text - CasePDFFilePath" FileName="[CasePDFFilePath]" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="ReadPDFText_2" PreserveFormatting="True" Range="All" Text="[CasePDF]" />
                                 <TryCatch DisplayName="Try Catch - Delete File - Case PDF" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="TryCatch_56">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -5638,7 +5650,7 @@
                                     </Catch>
                                   </TryCatch.Catches>
                                 </TryCatch>
-                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,94" sap2010:WorkflowViewState.IdRef="LogMessage_115" Level="Trace" Message="[&quot;Gotten PDF data from case&quot;]">
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,92" sap2010:WorkflowViewState.IdRef="LogMessage_115" Level="Trace" Message="[&quot;Gotten PDF data from case&quot;]">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
