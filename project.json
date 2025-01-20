@@ -1,5 +1,6 @@
 {
   "name": "Masterfil För Skolskjuts Grundskola",
+  "projectId": "719ebca2-fd11-4ba0-bbc0-b0f3a0cb557f",
   "description": "Masterfil för skolskjuts gällande grundskola. ",
   "main": "Main.xaml",
   "dependencies": {
@@ -111,7 +112,8 @@
         "fileName": "Tests\\TestCase XML Data Value to Dictionary.xaml"
       }
     ],
-    "modernBehavior": true
+    "modernBehavior": true,
+    "saveToCloud": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
